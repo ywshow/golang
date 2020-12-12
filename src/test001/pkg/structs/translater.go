@@ -13,11 +13,11 @@ type Translator struct {
 }
 
 func (t Translator) SpeakEnglish() {
-	fmt.Printf("englist翻译者%v翻译的是%v\n", t.Name, t.Translate)
+	fmt.Printf("englist:翻译者%v翻译的是%v\n", t.Name, t.Translate)
 }
 
 func (t Translator) SpeakChinese() {
-	fmt.Printf("chinese翻译者%v翻译的是%v\n", t.Name, t.Translate)
+	fmt.Printf("chinese:翻译者%v翻译的是%v\n", t.Name, t.Translate)
 }
 
 func (t Translator) Speak() {

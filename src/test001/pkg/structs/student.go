@@ -13,11 +13,11 @@ type Student struct {
 }
 
 func (stu Student) SpeakEnglish() {
-	fmt.Printf("english学生%v学的是%v\n", stu.Name, stu.Course)
+	fmt.Printf("english:学生%v学的是%v\n", stu.Name, stu.Course)
 }
 
 func (stu Student) SpeakChinese() {
-	fmt.Printf("id:%v,学生%v学的是%v,%v,%v\n", stu.Base.Id, stu.Name, stu.Course, stu.Base.CreateDate, stu.Base.UpdateDate)
+	fmt.Printf("Chinese:id:%v,学生%v学的是%v,%v,%v\n", stu.Base.Id, stu.Name, stu.Course, stu.Base.CreateDate, stu.Base.UpdateDate)
 }
 
 func (stu Student) Speak() {
