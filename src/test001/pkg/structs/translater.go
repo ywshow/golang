@@ -23,3 +23,7 @@ func (t Translator) SpeakChinese() {
 func (t Translator) Speak() {
 	fmt.Printf("ID为%v的%v是%v翻译的人才\n", t.Base.Id, t.Name, t.Translate)
 }
+
+func (t Translator) Salary() {
+	fmt.Println("翻译人员的工资为300/天")
+}
