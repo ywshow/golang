@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"test001/pkg/common"
 	"test001/pkg/inter"
@@ -12,11 +13,12 @@ func main() {
 
 	talent := structs.Talent{}
 
+	tm, _ := time.Parse("2006-01-02 15:04:05", time.Now().Format("2006-01-02 15:04:05"))
 	stu := structs.Student{
 		Base: common.BaseStruct{
 			Id:         "0000001",
-			CreateDate: time.Now(),
-			UpdateDate: time.Now(),
+			CreateDate: tm,
+			UpdateDate: tm,
 			Invalid:    true,
 		},
 		Name:   "小王",
@@ -58,6 +60,9 @@ func main() {
 	param5 := 4.3
 	fmt.Printf("%T\n", param2)
 	JudgeType(param1, param2, param3, param4, param5, stu, &stu)
+
+	str, _ := json.Marshal(stu)
+	fmt.Println(string(str))
 }
 
 func JudgeType(item ...interface{}) {
