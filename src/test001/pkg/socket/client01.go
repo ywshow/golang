@@ -15,7 +15,7 @@ func Input01() {
 		fmt.Println("客户端获取链接异常")
 		return
 	}
-	defer conn.Close()
+	//defer conn.Close()
 	//os.Stdin:获取从终端输入的信息
 
 	for {
@@ -33,7 +33,7 @@ func Input01() {
 		}
 		n, conErr := conn.Write([]byte(str))
 		if conErr != nil {
-			fmt.Println("客户端链接服务器异常")
+			fmt.Println("客户端链接服务器异常", conErr)
 		}
 		fmt.Printf("客户端写入%v个字节到服务器\n", n)
 	}

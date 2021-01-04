@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"strings"
 	"test001/pkg/common"
 )
 
@@ -74,13 +75,16 @@ func ConversationDeal(conn net.Conn) {
 	address := conn.RemoteAddr().String()
 	fmt.Printf("处理%v的链接信息\n", address)
 	fmt.Println("当前地址：", address)
-	defer conn.Close()
+	//defer conn.Close()
 	addMap[address] = address
 	fmt.Println("map=", addMap)
 	for k, v := range addMap {
 		if k != address {
 			fmt.Println("v====:", v)
-			ipAddr, _ := net.ResolveTCPAddr(common.SocketTcp, v.(string))
+			str := v.(string)
+			t := strings.LastIndex(str, ":")
+			port := str[t+1 : len(str)]
+			ipAddr, _ := net.ResolveTCPAddr(common.SocketTcp, common.SocketUrl+port)
 			clientConn, err := net.DialTCP(common.SocketTcp, nil, ipAddr)
 			if err != nil {
 				fmt.Println("与另一客户端对话失败", err)
